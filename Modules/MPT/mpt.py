@@ -23,7 +23,7 @@ def basic_analysis(data):
     '''
     data 是包含数据的字典，具体格式如下：
     data = {'symbol':DataFrame}
-    DataFrame 至少包含时间和价格 --> columns = ['time','close']
+    DataFrame 至少包含时间,价格和代码 --> columns = ['time','close','symbol']
     '''
     table = basicDataProcessing(data)
     plt.figure(figsize=(14, 7))
