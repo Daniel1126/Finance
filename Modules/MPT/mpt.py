@@ -80,9 +80,10 @@ class Analysis(object):
     def _random_portfolios(self):
         results = np.zeros((3,self._num_portfolios))  # 三行分别记录 portfolio_std_dev、portfolio_return、portfolio_sharp_ratio
         weights_record = []
+        num_target = self.table.shape[1]
         for i in range(self._num_portfolios):
             print('\r' + '分析进度 ' +'#' + '#' * int(i * 10 / self._num_portfolios) + '(%.2f%%   %d/%d)' % (i * 100 / self._num_portfolios,i,self._num_portfolios),end='',flush=True)
-            weights = np.random.random(4)
+            weights = np.random.random(num_target)
             weights /= np.sum(weights)
             weights_record.append(weights)
             portfolio_std_dev, portfolio_return = self._portfolio_annualised_performance(weights)
